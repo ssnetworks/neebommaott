@@ -14,9 +14,8 @@ const CustomPlayer = ({ videoUrl }) => {
   const [volume, setVolume] = useState(1);
   const [isMuted, setIsMuted] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [showControls, setShowControls] = useState(true); // Initially show controls
+  const [showControls, setShowControls] = useState(true);
 
-  // Handle controls visibility timer
   const resetControlsTimeout = () => {
     setShowControls(true);
     if (controlsTimeoutRef.current) {
@@ -37,13 +36,10 @@ const CustomPlayer = ({ videoUrl }) => {
   }, [isPlaying]);
 
   const handleContainerInteraction = () => {
-    // For mobile tap: if controls are hidden, show them. If shown, hide them.
-    // For desktop mouse move: always show and reset timer.
     resetControlsTimeout();
   };
 
   const handleVideoClick = () => {
-    // Toggle controls visibility on tap/click on the video itself
     if (showControls && isPlaying) {
       setShowControls(false);
       if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
@@ -143,7 +139,6 @@ const CustomPlayer = ({ videoUrl }) => {
     resetControlsTimeout();
   };
 
-  // Format time (seconds to MM:SS or HH:MM:SS)
   const formatTime = (time) => {
     if (isNaN(time)) return "00:00";
     const hours = Math.floor(time / 3600);
@@ -183,16 +178,13 @@ const CustomPlayer = ({ videoUrl }) => {
         playsInline
       />
       
-      {/* Big center play button if paused */}
       {!isPlaying && (
         <button className="center-play-btn" onClick={togglePlay}>
           <Play size={48} fill="currentColor" />
         </button>
       )}
 
-      {/* Controls Overlay */}
       <div className={`controls-overlay ${showControls ? 'show' : 'hide'}`}>
-        {/* Progress Bar Area */}
         <div className="progress-container">
           <input 
             type="range" 
