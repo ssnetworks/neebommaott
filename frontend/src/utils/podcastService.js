@@ -29,7 +29,7 @@ const formatDriveImageUrl = (url) => {
     }
     
     if (fileId) {
-      return `https://lh3.googleusercontent.com/d/${fileId}=w1000`;
+      return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
     }
   }
   return url;
