@@ -102,8 +102,8 @@ const Player = () => {
           <p>{movie.description}</p>
         </div>
         
-        {movie.downloadUrl && (
-          <a href={movie.downloadUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary download-btn">
+        {(movie.downloadUrl || movie.videoUrl) && (
+          <a href={movie.downloadUrl || movie.videoUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary download-btn">
             <Download size={20} /> Download HD
           </a>
         )}

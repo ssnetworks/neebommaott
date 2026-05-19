@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import SplashScreen from './components/SplashScreen';
 import Home from './pages/Home';
 import MovieDetails from './pages/MovieDetails';
 import Player from './pages/Player';
@@ -11,9 +14,12 @@ import AdminDashboard from './pages/admin/Dashboard';
 import './App.css';
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
   return (
     <Router>
       <div className="app-container">
+        {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={
@@ -22,6 +28,7 @@ function App() {
               <main className="main-content">
                 <Home />
               </main>
+              <Footer />
             </>
           } />
           <Route path="/movie/:id" element={
@@ -30,6 +37,7 @@ function App() {
               <main className="main-content">
                 <MovieDetails />
               </main>
+              <Footer />
             </>
           } />
           <Route path="/player/:id" element={<Player />} />
@@ -39,6 +47,7 @@ function App() {
               <main className="main-content">
                 <SearchResults />
               </main>
+              <Footer />
             </>
           } />
           <Route path="/movies" element={
@@ -47,6 +56,7 @@ function App() {
               <main className="main-content">
                 <Movies />
               </main>
+              <Footer />
             </>
           } />
           <Route path="/podcasts" element={
@@ -55,6 +65,7 @@ function App() {
               <main className="main-content">
                 <Podcasts />
               </main>
+              <Footer />
             </>
           } />
 

@@ -45,31 +45,18 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-actions">
-          {isSearchOpen ? (
-            <form onSubmit={handleSearch} className="search-form animate-fade-in" style={{ display: 'flex', alignItems: 'center' }}>
-              <input 
-                type="text" 
-                placeholder="Search movies..." 
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                autoFocus
-                style={{
-                  background: 'transparent',
-                  border: 'none',
-                  borderBottom: '1px solid var(--accent-primary)',
-                  color: 'white',
-                  padding: '5px',
-                  outline: 'none',
-                  width: '200px'
-                }}
-              />
-              <button type="button" onClick={() => setIsSearchOpen(false)} style={{ color: 'white', marginLeft: '10px' }}>
-                <X size={20} />
-              </button>
-            </form>
-          ) : (
-            <Search className="search-icon" size={24} onClick={() => setIsSearchOpen(true)} />
-          )}
+          <form onSubmit={handleSearch} className="search-form" style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
+            <input 
+              type="text" 
+              placeholder="Search..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="nav-search-input"
+            />
+            <button type="submit" className="nav-search-btn">
+              <Search size={18} />
+            </button>
+          </form>
           
           {/* Mobile menu toggle */}
           <div className="mobile-menu-toggle" style={{ display: 'none', cursor: 'pointer' }} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>

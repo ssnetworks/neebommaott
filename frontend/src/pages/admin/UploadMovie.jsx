@@ -43,7 +43,6 @@ const UploadMovie = () => {
     setError('');
 
     try {
-      // Save directly to Firestore using provided links
       const movieData = {
         title: formData.title,
         description: formData.description,
@@ -54,6 +53,7 @@ const UploadMovie = () => {
         isFeatured: formData.isFeatured === 'true',
         posterUrl: formData.posterUrl,
         videoUrl: formData.videoUrl,
+        downloadUrl: formData.downloadUrl,
         aspectRatio: formData.aspectRatio
       };
 

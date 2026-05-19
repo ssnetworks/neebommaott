@@ -69,9 +69,8 @@ const MovieDetails = () => {
               <Link to={`/player/${movie._id}`} className="btn btn-primary btn-lg">
                 <Play size={24} fill="currentColor" /> Stream Now
               </Link>
-              
-              {movie.downloadUrl && (
-                <a href={movie.downloadUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-lg">
+              {(movie.downloadUrl || movie.videoUrl) && (
+                <a href={movie.downloadUrl || movie.videoUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-lg">
                   <Download size={24} /> Download
                 </a>
               )}
