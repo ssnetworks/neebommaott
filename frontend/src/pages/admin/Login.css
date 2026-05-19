@@ -1,0 +1,44 @@
+.admin-login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1594909122845-11baa439b7bf?q=80&w=2070&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  margin-top: -70px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 450px;
+  padding: 3rem;
+  box-shadow: var(--shadow-md);
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.login-title span {
+  color: var(--accent-primary);
+}
+
+.error-alert {
+  background-color: rgba(229, 9, 20, 0.1);
+  border: 1px solid var(--accent-primary);
+  color: #ffb4b4;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.login-submit {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem;
+}
