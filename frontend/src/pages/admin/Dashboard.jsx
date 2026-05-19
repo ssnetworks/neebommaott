@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Film, Upload, LogOut, Settings } from 'lucide-react';
+import { LayoutDashboard, Film, Upload, LogOut, Settings, Mic, UploadCloud } from 'lucide-react';
 import MovieManager from './MovieManager';
 import UploadMovie from './UploadMovie';
+import PodcastManager from './PodcastManager';
+import UploadPodcast from './UploadPodcast';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -44,6 +46,17 @@ const Dashboard = () => {
           <Link to="/admin/dashboard/upload" className={`nav-item ${isActive('/admin/dashboard/upload')}`}>
             <Upload size={20} />
             <span>Upload Movie</span>
+          </Link>
+          <div style={{ marginTop: '1rem', marginBottom: '0.5rem', paddingLeft: '1rem', fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px' }}>
+            Podcasts
+          </div>
+          <Link to="/admin/dashboard/podcasts" className={`nav-item ${isActive('/admin/dashboard/podcasts')}`}>
+            <Mic size={20} />
+            <span>Manage Podcasts</span>
+          </Link>
+          <Link to="/admin/dashboard/upload-podcast" className={`nav-item ${isActive('/admin/dashboard/upload-podcast')}`}>
+            <UploadCloud size={20} />
+            <span>Upload Podcast</span>
           </Link>
           <div className="nav-item">
             <Settings size={20} />
@@ -95,6 +108,8 @@ const Dashboard = () => {
             } />
             <Route path="movies" element={<MovieManager />} />
             <Route path="upload" element={<UploadMovie />} />
+            <Route path="podcasts" element={<PodcastManager />} />
+            <Route path="upload-podcast" element={<UploadPodcast />} />
           </Routes>
         </div>
       </main>
